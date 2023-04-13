@@ -1,0 +1,34 @@
+<HTML>
+    <head>
+     <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+     
+    </head>
+    <body> 
+        <div>Введите слово</div>
+        <button id="submit-button" type="submit" pys-onClick="my_function">Нажми</button>
+        <input type="text" id="test-input" style="background-color:red; width: 200px" placeholder="место для первого слова" >
+        <input type="text" id="test-input2" style="background-color: blue; width: 200px" placeholder="место для остальных слов">
+        <div id="test-output"></div>
+      <py-script> 
+        from js import console
+  
+        def my_function(*args, **kwargs):
+                        
+            console.log(f'args: {args}')
+            console.log(f'kwargs: {kwargs}')
+            text = Element('test-input').element.value
+            text2 = Element('test-input2').element.value
+            text3 = "Верно" 
+            text4 = "Неверно"
+            console.log(f'text: {text}')
+            console.log(f'text2: {text2}')
+            console.log(f'text3: {text3}')
+            console.log(f'text4: {text4}')
+            if text[-1] == text2[0]:
+                Element('test-output').element.innerText = text3
+            else:
+                Element('test-output').element.innerText = text4
+
+     </py-script> </body>
+     </html>
